@@ -1,28 +1,51 @@
-# FastAPI Calculator
+# 🧮 FastAPI Calculator
 
-A tiny FastAPI app with unit, integration, and Playwright E2E tests + logging + GitHub Actions CI.
+A FastAPI-based calculator web app demonstrating REST API creation, testing, logging, and CI/CD.
+Includes unit, integration, and Playwright end-to-end tests with automated GitHub Actions.
 
-## Quickstart
+![CI](https://github.com/Tejen1710/FastAPI_calc/actions/workflows/ci.yml/badge.svg)
+
+## 🚀 Quickstart
 ```bash
+# Create virtual environment (optional but recommended)
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1  # Windows
+# or source .venv/bin/activate  # macOS/Linux
+
+# Install dependencies
 pip install -r requirements.txt
 python -m playwright install
+
+# Run the app
 uvicorn app.main:app --reload
 ```
 
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000)
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
+You’ll see a simple calculator UI — enter numbers and choose an operation.
 
-## Tests
-
+## 🧪 Running Tests
 ```bash
-pytest -q              # unit + integration
-pytest -q -m e2e       # Playwright E2E
+pytest -q              # Run unit + integration tests
+pytest -q -m e2e       # Run Playwright end-to-end tests
 ```
 
-## CI
+All tests cover arithmetic logic (add, subtract, multiply, divide) and API endpoints.
+E2E tests simulate user interaction with the browser using Playwright.
 
-CI runs on every push: unit, integration, and e2e. See `.github/workflows/ci.yml`.
+## 🧾 Logging
 
-## Screenshots to include in submission
+The app uses Python’s logging with rotating file output:
 
-1. **GitHub Actions Success** – a green run for the latest commit.
-2. **App in Browser** – homepage showing the calculator UI at `http://127.0.0.1:8000`.
+Logs are saved in `logs/app.log`
+
+Each request and operation is recorded for debugging and traceability.
+
+## 🔄 Continuous Integration (CI)
+
+Every commit triggers automated testing through GitHub Actions:
+
+- Installs dependencies
+- Runs unit, integration, and E2E tests
+- Validates the app builds successfully
+
+See the workflow file at `.github/workflows/ci.yml`.
